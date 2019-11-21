@@ -86,7 +86,7 @@ The goal of this function is to take one of the files created from the function 
 		
     3.1.3 With the object, we can add some information to it. We will take the key and value from step **2.** and add the information to the object as `data[key] = value`
 		
-    3.1.4 The next step is to call the function to write files as in the first function. We will use it like `fs.writeFile(filename, data, (err)=>{callback function})`. This function will take the already existing file and replace it with new one that contains the new information. The callback function should be similar as in previous functions. if error then show it in the console, else show a message saying that the file was updated.
+    3.1.4 The next step is to call the function to write files as in the first function. We will use it like `fs.writeFile(filename, JSON.stringify(data), (err)=>{callback function})`. This function will take the already existing file and replace it with new one that contains the new information. The callback function should be similar as in previous functions. if error then show it in the console, else show a message saying that the file was updated.
 		 
 	3.2 **Asynchronous Approach**
 	

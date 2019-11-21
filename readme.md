@@ -51,24 +51,24 @@ The file will be called `create.js`. Now here are the steps and comments to crea
 9. The function should be working now, try running it by using `node create.js` and the folder with name and info.json file should be created. Try creating different folders by changing the name in the info object.
 
 ## Function 2: read files
-Normally we will need to read a json file from our server. Then we will use functions from the `fs` module.  We will read the files created by the previous function. The file will be called `read.js`. The steps and comments for this function are the following:
+Normally we will need to read a json file from our server. Then we will use functions from the `fs` module.  We will read the files created by the previous function. This file will be called `read.js`. The steps and comments for this function are the following:
 
  1. As before we need to import the `fs` and `path` modules from node.
- 2. Then we need to specify the name of the folder from where we will read the file. for example: `let name = mark`
- 3. Now we can 	create the path for the filename. From previous function we know the file is called `info.json` then we can use `path.join` to create the path. Also we can use another function of the path module, `path.format`. This function take the parts of a path and put it together. For example
+ 2. Then we need to specify the name of the folder from where we will read the file. for example: `let name = 'mark'`
+ 3. Now we can 	create the path for the filename. From previous function we know the file is called `info.json` then we can use `path.join` to create the path as `let filepath = path.join(__dirname,name,'info.json')`. Also we can use another function of the path module, `path.format`. This function take the parts of a path and put it together. For example
 
-	    let directory = '/home/mark'
-	    let filename = 'info.js'
-	    path,format({
+	    let directory = __dirname + name
+	    let filename = 'info.json'
+	    let filepath = path.format({
 	    	dir: directory,
 	    	base: filename})
 	In format you put inside the parenthesis '( )' an object with some variables. This should be `dir` and should equal to the path of the directory where the file is saved and in `base` the name of the file with the extension. For more info on this you can visit [path.format](https://nodejs.org/api/path.html#path_path_format_pathobject)
 
  4. Next step is to read the file. For this we use the function
   
-		 fs.readfile(filename,(err,data)=> {callback function})
+		 fs.readfile(filepath,(err,data)=> {callback function})
 		  
-	In this function we need to specify the path of the file. Then in the callback function we need an if statement. if there is error show the error, else show the data obtained from the file
+	In this function we need to specify the path of the file. Then in the callback function we need an if statement. if there is error show the error, else show the data obtained from the file. The data will be obtained as json, then is needed to use: `JSON.parse(data)` to watch it correctly on the terminal.
 5. Now lets try running our code like `node read.js` and we will see the data from the file in the console. :D
 
 ## Function 3: update existing file

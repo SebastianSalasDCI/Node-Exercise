@@ -80,13 +80,13 @@ The goal of this function is to take one of the files created from the function 
 
 	3.1 **Synchronous Approach** 
 	
-    3.1.1 After having the path for the file we can use the function `let data = fs.readFileSync(filename)`. This function will return the data inside the folder and save it in this data variable.
+    3.1.1 After having the path for the file we can use the function `let data = fs.readFileSync(filepath)`. This function will return the data inside the folder and save it in this data variable.
 		
     3.1.2 Now the data inside the file we need it as json, then we will use the `JSON.parse(data)` to obtain the json object and assign it to a new variable, like `info`. 
 		
     3.1.3 With the object, we can add some information to it. We will take the key and value from step **2.** and add the information to the object as `info[key] = value`
 		
-    3.1.4 The next step is to call the function to write files as in the first function. We will use it like `fs.writeFile(filename, JSON.stringify(info), (err)=>{callback function})`. This function will take the already existing file and replace it with new one that contains the new information. The callback function should be similar as in previous functions. if error then show it in the console, else show a message saying that the file was updated.
+    3.1.4 The next step is to call the function to write files as in the first function. We will use it like `fs.writeFile(filepath, JSON.stringify(info), (err)=>{callback function})`. This function will take the already existing file and replace it with new one that contains the new information. The callback function should be similar as in previous functions. if error then show it in the console, else show a message saying that the file was updated.
 		 
 	3.2 **Asynchronous Approach**
 	
